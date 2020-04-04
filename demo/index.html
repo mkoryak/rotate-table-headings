@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link type="text/css" rel="stylesheet" href="./styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="./../dist/rotate-table-headings-global.js"></script>
+
+    <style>
+        /* Make our table look decent */
+        th {
+            padding: 2px 10px;
+        }
+
+        td {
+            border-right: 1px solid #ccc;
+            border-top: 1px solid #ccc;
+            padding: 5px 10px;
+        }
+
+        /* Make the table scroll inside a div. */
+        .table-container {
+            height: 500px;
+            overflow-y: auto;
+        }
+
+        table.rotate-table-headings .cell-rotate .cell-label {
+            border-bottom: 1px solid #ccc;
+        }
+
+
+    </style>
+</head>
+<body>
+
+I got rid of bootstrap styles, they were making it hard to figure out what things I needed to have.
+
+<div class="table-container">
+    <table id="table_demo">
+        <thead>
+        <tr>
+            <th>Food1 DescriptionFood2 DescriptionFood3 DescriptionFood4 DescriptionFood5 DescriptionFood6 Description7!!!!!!!!!! !!!</th>
+            <th>Calories(kcal)</th>
+            <th>Protein (g)</th>
+            <th>Fat (g)</th>
+            <th>Carbohydrate (g)</th>
+            <th>Food Description and Portion Size</th>
+            <th>Calories(kcal)</th>
+            <th>Protein (g)</th>
+            <th>Fat (g)</th>
+            <th>Carbohydrate (g)</th>
+            <th>Food Description and Portion Size</th>
+            <th>Calories(kcal)</th>
+            <th>Protein (g)</th>
+            <th>Fat (g)</th>
+            <th>Carbohydrate (g)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>APPLE PIE 1 PIEAPPLE PIE 1 PIEAPPLE PIE 1 PIEAPPLE PIE 1 PIEAPPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21212121 21212121 21212121 21212121 21212121 21212121 21212121 21212121 21212121 21212121 21212121 21212121 21212121 21212121 21212121 21212121 21212121 21212121 21212121 </td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        <tr>
+            <td>APPLE PIE 1 PIECE</td>
+            <td>405</td>
+            <td>3</td>
+            <td>18</td>
+            <td>60</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+            <td>APPLE PIE 1 PIE</td>
+            <td>2420</td>
+            <td>21</td>
+            <td>105</td>
+            <td>360</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+
+    const jq = 0;
+    const $table = $("#table_demo");
+    if(jq) {
+
+        const lastCellWidth = rotateTableCells(
+            $table.find("thead th"),
+                /* maxCellHeight= */ 250,
+                /* angle= */ 35,
+                /* For angles under 40deg you will need to increase from 10: */
+                /* textTruncateOffset= */ 20
+        );
+    } else {
+        rotateTableHeadings($table[0].querySelectorAll('thead th'),
+                /* maxCellHeight= */ 250,
+                /* angle= */ 35,
+                /* For angles under 40deg you will need to increase from 10: */
+                /* textTruncateOffset= */ 20);
+    }
+</script>
+
+</body>
+</html>

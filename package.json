@@ -1,0 +1,31 @@
+{
+  "name": "rotate-table-headings",
+  "version": "0.1.0",
+  "description": "Rotates the table headings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/rollup/dist/bin/rollup -c --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkoryak/rotate-table-headings.git"
+  },
+  "keywords": [
+    "table",
+    "heading",
+    "th",
+    "rotate",
+    "transform"
+  ],
+  "author": "Misha Koryak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mkoryak/rotate-table-headings/issues"
+  },
+  "homepage": "https://github.com/mkoryak/rotate-table-headings#readme",
+  "devDependencies": {
+    "@rollup/plugin-buble": "^0.21.1",
+    "rollup": "^2.3.2"
+  }
+}
