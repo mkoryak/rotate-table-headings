@@ -1,6 +1,6 @@
 {
   "name": "rotate-table-headings",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Rotates the table headings",
   "main": "index.js",
   "scripts": {

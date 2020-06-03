@@ -27,6 +27,9 @@
                 sheet.cssRules.length);
         };
 
+        add(".rotate-table-headings-container", {
+            overflowY: 'hidden',
+        });
         add("table.rotate-table-headings", {
             borderCollapse: 'collapse',
             borderSpacing: '0',
@@ -61,6 +64,8 @@
      * @param {number} maxCellHeight Maximum height of the cell in pixels.
      *   Used for truncating the cell contents to fit. Use a very large
      *   number if you do not want to truncate cell text.
+     * @param {boolean=} setLastCellWidth Whether to set the last cell's 
+     *   width so that the header extends outside the table. 
      * @param {number=} angle Angle in degrees.
      * @param {number=} textTruncateOffset Subtract this from the max width
      *   used to truncate cell text. It is needed because our forumula does
@@ -73,9 +78,11 @@
     function rotateTableHeadings(
         tableCells,
         maxCellHeight,
+        setLastCellWidth,
         angle,
         textTruncateOffset
     ){
+        if ( setLastCellWidth === void 0 ) setLastCellWidth = true;
         if ( angle === void 0 ) angle = 45;
         if ( textTruncateOffset === void 0 ) textTruncateOffset = 10;
 
@@ -116,6 +123,14 @@
                 }
             }
         };
+
+        // Push the cell down to line the border up with the columns.
+        // Equal to border-bottom-width.
+        var compensateForCellBorder = function (cellLabel) {
+             cellLabel.style.marginBottom = 
+                "-" + (getComputedStyle(cellLabel).borderBottomWidth);
+        };
+
         if(tableCells.length === 0){
             return 0;
         }
@@ -160,18 +175,20 @@
                 lastCellWidth = height / Math.tan(angle * Math.PI / 180);
             }
         }
+        if(!setLastCellWidth) {
+            var lastLabel = cellLabels.pop();
+            compensateForCellBorder(lastLabel);
+        }
         for(var i$1 = 0, list$1 = cellLabels; i$1 < list$1.length; i$1 += 1){
             var cellLabel$1 = list$1[i$1];
 
             cellLabel$1.style.width = maxWidth + 'px';
-
-            // Push the cell down to line the border up with the columns.
-            // Equal to border-bottom-width.
-            cellLabel$1.style.marginBottom = "-" + (getComputedStyle(cellLabel$1).borderBottomWidth);
+            compensateForCellBorder(cellLabel$1);
         }
         return lastCellWidth - textTruncateOffset;
     }
 
+    // Rollup entry point to generate an IIFE with a global on window.
     window.rotateTableHeadings = rotateTableHeadings;
 
 }());

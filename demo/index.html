@@ -7,9 +7,9 @@
 
     <link type="text/css" rel="stylesheet" href="./styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <script src="./../dist/rotate-table-headings-global.js"></script>
-
+    <script src="https://mkoryak.github.io/floatThead/dist/jquery.floatThead.js"></script>
+    <script src="./../dist/jquery.rotate-table-headings.js"></script>
+    <script src="./../dist/jquery.rotate-table-headings.floatthead-adapter.js"></script>
     <style>
         /* Make our table look decent */
         th {
@@ -438,27 +438,25 @@ I got rid of bootstrap styles, they were making it hard to figure out what thing
         </tbody>
     </table>
 </div>
-
-<script>
-
-    const jq = 0;
-    const $table = $("#table_demo");
-    if(jq) {
-
-        const lastCellWidth = rotateTableCells(
-            $table.find("thead th"),
-                /* maxCellHeight= */ 250,
-                /* angle= */ 35,
-                /* For angles under 40deg you will need to increase from 10: */
-                /* textTruncateOffset= */ 20
-        );
-    } else {
-        rotateTableHeadings($table[0].querySelectorAll('thead th'),
-                /* maxCellHeight= */ 250,
-                /* angle= */ 35,
-                /* For angles under 40deg you will need to increase from 10: */
-                /* textTruncateOffset= */ 20);
+<style>
+    thead {
+        background-color: white;
     }
+</style>    
+<script>
+    $(() => {
+        $("#table_demo").rotateTableHeadings({
+            maxCellHeight: 200,
+            setLastCellWidth: false,
+            angle: 45,
+            textTruncateOffset: 10,
+        }).floatThead({
+          scrollContainer: function($table) {
+            return $table.closest(".table-container");
+          },
+          position: "absolute"
+        });
+    });
 </script>
 
 </body>

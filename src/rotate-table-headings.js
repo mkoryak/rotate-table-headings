@@ -10,6 +10,8 @@ import insertStyles from './insert-styles';
  * @param {number} maxCellHeight Maximum height of the cell in pixels.
  *   Used for truncating the cell contents to fit. Use a very large
  *   number if you do not want to truncate cell text.
+ * @param {boolean=} setLastCellWidth Whether to set the last cell's 
+ *   width so that the header extends outside the table. 
  * @param {number=} angle Angle in degrees.
  * @param {number=} textTruncateOffset Subtract this from the max width
  *   used to truncate cell text. It is needed because our forumula does
@@ -22,6 +24,7 @@ import insertStyles from './insert-styles';
 export default function(
     tableCells,
     maxCellHeight,
+    setLastCellWidth = true,
     angle = 45,
     textTruncateOffset = 10
 ){
@@ -57,6 +60,14 @@ export default function(
             }
         }
     };
+
+    // Push the cell down to line the border up with the columns.
+    // Equal to border-bottom-width.
+    const compensateForCellBorder = (cellLabel) => {
+         cellLabel.style.marginBottom = 
+            `-${getComputedStyle(cellLabel).borderBottomWidth}`;
+    };
+
     if(tableCells.length === 0){
         return 0;
     }
@@ -99,12 +110,13 @@ export default function(
             lastCellWidth = height / Math.tan(angle * Math.PI / 180);
         }
     }
+    if(!setLastCellWidth) {
+        const lastLabel = cellLabels.pop();
+        compensateForCellBorder(lastLabel);
+    }
     for(const cellLabel of cellLabels){
         cellLabel.style.width = maxWidth + 'px';
-
-        // Push the cell down to line the border up with the columns.
-        // Equal to border-bottom-width.
-        cellLabel.style.marginBottom = `-${getComputedStyle(cellLabel).borderBottomWidth}`;
+        compensateForCellBorder(cellLabel);
     }
     return lastCellWidth - textTruncateOffset;
 };

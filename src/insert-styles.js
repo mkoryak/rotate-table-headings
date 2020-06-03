@@ -26,6 +26,9 @@ export default function () {
             sheet.cssRules.length);
     };
 
+    add(".rotate-table-headings-container", {
+        overflowY: 'hidden',
+    });
     add("table.rotate-table-headings", {
         borderCollapse: 'collapse',
         borderSpacing: '0',
