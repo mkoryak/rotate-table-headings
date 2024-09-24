@@ -26,6 +26,6 @@
   "homepage": "https://github.com/mkoryak/rotate-table-headings#readme",
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.1",
-    "rollup": "^2.3.2"
+    "rollup": "^3.29.5"
   }
 }
